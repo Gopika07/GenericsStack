@@ -4,7 +4,9 @@ class Program
 {
     static void Main()
     {
-        GStack<int> stack = new GStack<int>();
+        Console.WriteLine("Enter the size of the stack:");
+        int sizeS = int.Parse(Console.ReadLine());
+        GStack<int> stack = new GStack<int>(sizeS);
         int choice;
         while (true)
         {
@@ -19,8 +21,23 @@ class Program
             {
                 case 1:
                     Console.WriteLine("Enter a value to push");
-                    int val = int.Parse(Console.ReadLine());
-                    stack.Push(val);
+                    string input = Console.ReadLine().Trim();
+
+                    if (string.IsNullOrEmpty(input))
+                    {
+                        stack.Push();
+                    }
+                    else
+                    {
+                        if (int.TryParse(input, out int val))
+                        {
+                            stack.Push(val);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input. Please enter a valid integer.");
+                        }
+                    }
                     break;
                 case 2:
                     if (stack.IsEmpty())

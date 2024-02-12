@@ -10,34 +10,29 @@ namespace GenericsStack
     {
         T[] genStack;
         int top;
-        public GStack() 
+        public GStack(int S) 
         {
-            genStack = new T[20];
+            genStack = new T[S];
             top = -1;
         }
 
-        public int Push(T val)
+        public void Push(T val = default)
         {
+            if(!typeof(T).IsValueType)
+                throw new InvalidOperationException("Invalid type!");
+
             if (top == genStack.Length - 1)
-            {
-                return -1;
-            }
+                throw new InvalidOperationException("Stack is filled!");
             else
             {
                 top++;
                 genStack[top] = val;
             }
-            return 0;
         }
         public T Pop()
         {
-            T val = default;
-            bool res = IsEmpty();
-            if (top >= 0)
-            {
-                val = genStack[top];
-                top--;
-            }
+            T val = genStack[top];
+            top--;
             return val;
         }
 
