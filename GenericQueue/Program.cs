@@ -38,7 +38,7 @@ class Program
                     Console.WriteLine(queue.isEmpty() ? "Queue is empty!" : "Queue is not empty");
                     break;
                 case 4:
-                    Console.WriteLine(queue.isFull()? "Queue is full!" : "Queue is not full");
+                    Console.WriteLine(queue.isFull() ? "Queue is full!" : "Queue is not full");
                     break;
                 case 5:
                     Environment.Exit(0);
