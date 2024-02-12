@@ -14,8 +14,9 @@ class Program
         {
             Console.WriteLine("1.Enqueue chat message");
             Console.WriteLine("2.Dequeue chat message");
-            Console.WriteLine("3.Check Queue");
-            Console.WriteLine("4.Exit");
+            Console.WriteLine("3.Check if Queue is empty");
+            Console.WriteLine("4.Check if Queue is full");
+            Console.WriteLine("5.Exit");
             int choice = int.Parse(Console.ReadLine());
             switch (choice)
             {
@@ -34,8 +35,12 @@ class Program
                     Console.WriteLine($"Deleted message : {deletedMessage.Content}");
                     break;
                 case 3:
+                    Console.WriteLine(queue.isEmpty() ? "Queue is empty!" : "Queue is not empty");
                     break;
                 case 4:
+                    Console.WriteLine(queue.isFull()? "Queue is full!" : "Queue is not full");
+                    break;
+                case 5:
                     Environment.Exit(0);
                     break;
                 default:

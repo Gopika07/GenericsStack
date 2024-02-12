@@ -9,7 +9,7 @@ namespace GenericQueue
     public class GQueue<T>
     {
         T[] queue;
-        int front = -1, rear = -1;
+        int front = 0, rear = 0;
 
         public GQueue() 
         {
@@ -20,8 +20,8 @@ namespace GenericQueue
         {
             if (isFull())
                 throw new InvalidOperationException("Queue is full!");
-            rear++;
-            queue[rear] = item;
+            //rear++;
+            queue[rear++] = item;
         }
 
         public T Dequeue()
